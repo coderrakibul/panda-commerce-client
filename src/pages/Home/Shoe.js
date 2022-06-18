@@ -1,11 +1,11 @@
 import React from 'react';
 
-const HomeItem = ({ shoe }) => {
+const Shoe = ({ shoe }) => {
     const { name, model, image, price, description } = shoe;
     return (
         <div class="card bg-base-100 shadow-xl">
 
-           
+
             <figure class="px-10 pt-10 h-48">
                 <img className=' mx-auto' src={image} alt="Shoes" class="rounded-xl" />
             </figure>
@@ -32,4 +32,4 @@ const HomeItem = ({ shoe }) => {
     );
 };
 
-export default HomeItem;
+export default Shoe;
