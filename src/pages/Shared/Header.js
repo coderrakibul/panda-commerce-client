@@ -6,6 +6,7 @@ const Header = ({ children }) => {
     const menuItems = <>
         <li><NavLink className='rounded-lg font-bold text-white' to="/home">Home</NavLink></li>
         <li><NavLink className='rounded-lg font-bold text-white' to="/shop">Shop</NavLink></li>
+        <li><NavLink className='rounded-lg font-bold text-white' to="/cart">Cart</NavLink></li>
         <li><NavLink className='rounded-lg font-bold text-white' to="/login">Login</NavLink></li>
     </>
 

@@ -4,7 +4,8 @@ import Shoe from './Shoe';
 
 const Shoes = () => {
     const [shoes, setShoes] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const [cart, setCart] = useState([]);
 
     useEffect(() => {
         setLoading(true)
@@ -15,6 +16,12 @@ const Shoes = () => {
                 setLoading(false)
             })
     }, [])
+
+    const handleAddToCart = (shoe) => {
+        console.log(shoe);
+        const newCart = [...cart, shoe];
+        setCart(newCart);
+    }
 
     if (loading) {
         return <Loading></Loading>
@@ -29,8 +36,10 @@ const Shoes = () => {
                     shoes.map(shoe => <Shoe
                         key={shoe._id}
                         shoe={shoe}
+                        handleAddToCart={handleAddToCart}
                     ></Shoe>)
                 }
+
             </div>
         </div>
     );

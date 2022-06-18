@@ -1,7 +1,8 @@
 import React from 'react';
 
-const Shoe = ({ shoe }) => {
+const Shoe = ({ shoe, handleAddToCart }) => {
     const { name, model, image, price, description } = shoe;
+
     return (
         <div class="card bg-base-100 shadow-xl">
 
@@ -14,7 +15,7 @@ const Shoe = ({ shoe }) => {
                 <p>Code: {model}</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>
                 <div class="card-actions w-full">
-                    <button class="btn btn-primary w-full font-bold">Add to Cart</button>
+                    <button onClick={() => handleAddToCart(shoe)} class="btn btn-primary w-full font-bold">Add to Cart</button>
                 </div>
 
                 <input type="checkbox" id="shoe-modal" class="modal-toggle" />
