@@ -4,9 +4,9 @@ const Jacket = ({ jacket }) => {
     const { name, model, image, price, description } = jacket;
     return (
         <div class="card bg-base-100 shadow-xl">
-            <figure class="px-10 pt-10">
-                <img src={image} alt="Shoes" class="rounded-xl" />
-            </figure>
+            <div class="px-10 pt-10 mx-auto">
+                <img src={image} alt="Shoes" class="rounded-xl h-48" />
+            </div>
             <div class="card-body mt-6">
                 <h2>Brand: {name}</h2>
                 <p>Code: {model}</p>
