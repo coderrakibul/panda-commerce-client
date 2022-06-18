@@ -6,8 +6,8 @@ const Jacket = ({ jacket }) => {
         <div class="card bg-base-100 shadow-xl">
 
             <label for="jacket-modal" class="btn modal-button">Description</label>
-            <figure class="px-10 pt-20 pb-20 h-48">
-                <img className='mx-auto p-16 w-48' src={image} alt="Shoes" class="rounded-xl" />
+            <figure class="px-10 pt-10">
+                <img src={image} alt="Shoes" class="rounded-xl" />
             </figure>
             <div class="card-body mt-6">
                 <h2>Brand: {name}</h2>
