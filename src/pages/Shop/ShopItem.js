@@ -10,7 +10,7 @@ const ShopItem = ({ shoe }) => {
             <figure class="px-10 pt-10 h-48">
                 <img className=' mx-auto' src={image} alt="Shoes" class="rounded-xl" />
             </figure>
-            <div class="card-body mt-4">
+            <div class="card-body mt-6">
                 <h2>Brand: {name}</h2>
                 <p>Code: {model}</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>

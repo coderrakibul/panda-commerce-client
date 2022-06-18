@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../Shared/Loading';
+import ScrollButton from '../Shared/ScrollButton';
+
 import ShopItem from './ShopItem';
 
 const Shop = () => {
@@ -32,8 +34,9 @@ const Shop = () => {
                         shoe={shoe}
                     ></ShopItem>)
                 }
-            </div>
 
+            </div>
+           <ScrollButton></ScrollButton>
         </div>
     );
 };
