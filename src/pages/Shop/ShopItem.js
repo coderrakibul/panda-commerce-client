@@ -7,10 +7,10 @@ const ShopItem = ({ shoe }) => {
         <div class="card bg-base-100 shadow-xl">
 
             <label for="description-modal" class="btn modal-button">Description</label>
-            <figure class="px-10 pt-4 h-48">
+            <figure class="px-10 pt-10 h-48">
                 <img className=' mx-auto' src={image} alt="Shoes" class="rounded-xl" />
             </figure>
-            <div class="card-body">
+            <div class="card-body mt-4">
                 <h2>Brand: {name}</h2>
                 <p>Code: {model}</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>
