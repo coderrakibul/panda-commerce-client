@@ -5,7 +5,7 @@ const Shoe = ({ shoe }) => {
     return (
         <div class="card bg-base-100 shadow-xl">
 
-            <label for="description-modal" class="btn modal-button">Description</label>
+            <label for="shoe-modal" class="btn modal-button">Description</label>
             <figure class="px-10 pt-10 h-48">
                 <img className=' mx-auto' src={image} alt="Shoes" class="rounded-xl" />
             </figure>
@@ -17,18 +17,16 @@ const Shoe = ({ shoe }) => {
                     <button class="btn btn-primary w-full font-bold">Add to Cart</button>
                 </div>
 
-                <input type="checkbox" id="description-modal" class="modal-toggle" />
+                <input type="checkbox" id="shoe-modal" class="modal-toggle" />
                 <div class="modal modal-bottom sm:modal-middle">
                     <div class="modal-box">
                         <h3 class="font-bold text-lg">Description!</h3>
                         <p class="py-4">{description}</p>
                         <div class="modal-action">
-                            <label for="description-modal" class="btn bg-red-700">Close</label>
+                            <label for="shoe-modal" class="btn bg-red-700">Close</label>
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     );

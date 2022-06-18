@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import Loading from '../Shared/Loading';
-import Shoe from './Shoe';
+import Jacket from './Jacket';
 
-const Shoes = () => {
-    const [shoes, setShoes] = useState([]);
+const Jackets = () => {
+    const [jackets, setJackets] = useState([]);
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/shoe')
+        fetch('http://localhost:5000/jacket')
             .then(res => res.json())
             .then(data => {
-                setShoes(data)
+                setJackets(data)
                 setLoading(false)
             })
     }, [])
@@ -22,18 +22,18 @@ const Shoes = () => {
 
     return (
         <div className='p-4'>
-            <h2 className='text-center text-2xl font-bold m-8'>Total Shoes: {shoes.length}</h2>
-            <h2 className='text-2xl font-bold mb-4'>Shoe Collection</h2>
+            <h2 className='text-center text-2xl font-bold m-8'>Total Jackets: {jackets.length}</h2>
+            <h2 className='text-2xl font-bold mb-4'>Jacket Collection</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
-                    shoes.map(shoe => <Shoe
-                        key={shoe._id}
-                        shoe={shoe}
-                    ></Shoe>)
+                    jackets.map(jacket => <Jacket
+                        key={jacket._id}
+                        jacket={jacket}
+                    ></Jacket>)
                 }
             </div>
         </div>
     );
 };
 
-export default Shoes;
+export default Jackets;
