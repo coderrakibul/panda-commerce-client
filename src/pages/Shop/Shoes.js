@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Loading from '../Shared/Loading';
 import Shoe from './Shoe';
 
@@ -40,6 +41,11 @@ const Shoes = () => {
                     ></Shoe>)
                 }
 
+            </div>
+            <div>
+                <Cart
+                    cart={cart}
+                ></Cart>
             </div>
         </div>
     );
