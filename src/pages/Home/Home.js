@@ -23,7 +23,7 @@ const Home = () => {
         return <Loading></Loading>
     }
     return (
-        <div className='m-8'>
+        <div className='m-8 border-2 p-4'>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
                     firstFour.map(shoe => <HomeItem
