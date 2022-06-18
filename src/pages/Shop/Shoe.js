@@ -1,8 +1,7 @@
 import React from 'react';
 
-const ShopItem = ({ shoe }) => {
+const Shoe = ({ shoe }) => {
     const { name, model, image, price, description } = shoe;
-
     return (
         <div class="card bg-base-100 shadow-xl">
 
@@ -35,4 +34,4 @@ const ShopItem = ({ shoe }) => {
     );
 };
 
-export default ShopItem;
+export default Shoe;

@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Shoe = ({ shoe }) => {
-    const { name, model, image, price, description } = shoe;
+const Jacket = ({ jacket }) => {
+    const { name, model, image, price, description } = jacket;
     return (
         <div class="card bg-base-100 shadow-xl">
             <figure class="px-10 pt-10 h-48">
@@ -28,4 +28,4 @@ const Shoe = ({ shoe }) => {
     );
 };
 
-export default Shoe;
+export default Jacket;
