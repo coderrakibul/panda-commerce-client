@@ -14,7 +14,9 @@ const Jackets = () => {
                 setJackets(data)
                 setLoading(false)
             })
-    }, [])
+    }, []);
+
+    
 
     if (loading) {
         return <Loading></Loading>

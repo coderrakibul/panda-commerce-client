@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb, getStoredCart } from '../../utilities/localdb';
-import Cart from '../Cart/Cart';
+import { addToDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
 import Shoe from './Shoe';
 
@@ -18,20 +17,6 @@ const Shoes = () => {
                 setLoading(false)
             })
     }, []);
-
-    useEffect(() => {
-        const storedCart = getStoredCart();
-        const savedCart = [];
-        for (const id in storedCart) {
-            const addedShoes = shoes.find(shoe => shoe._id === id)
-            if (addedShoes) {
-                const quantity = storedCart[id];
-                addedShoes.quantity = quantity;
-                savedCart.push(addedShoes);
-            }
-        }
-        setCart(savedCart);
-    }, [shoes]);
 
     const handleAddToCart = (shoe) => {
         const newCart = [...cart, shoe];
@@ -56,12 +41,6 @@ const Shoes = () => {
                         handleAddToCart={handleAddToCart}
                     ></Shoe>)
                 }
-
-            </div>
-            <div>
-                <Cart
-                    cart={cart}
-                ></Cart>
             </div>
         </div>
     );
