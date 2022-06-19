@@ -1,17 +1,26 @@
 import React from 'react';
 
-const CartRow = ({ cartRow, index, removeFromCart }) => {
+const CartRow = ({ cartRow, index, removeFromCart, deleteCart }) => {
     const { model, _id, image, price, quantity } = cartRow;
+
+    const totalPrice = price * quantity;
+    const shipping = 5;
+    const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);
+    const finalPrice = Math.round(totalPrice + shipping + tax);
+
     return (
-        <tr className=' font-bold'>
+        <tr className='font-bold'>
             <th>{index + 1}</th>
             <td>{model}</td>
-            <td className='text-orange-500'>{_id}</td>
             <td><img className='w-16' src={image} alt="" /></td>
             <td>${price}</td>
             <td>{quantity}</td>
-            <td onClick={() => removeFromCart(_id)}><button class="btn btn-xs font-bold">Delete</button></td>
-            <td><button class="btn btn-xs font-bold">Order</button></td>
+            <td>${shipping}</td>
+            <td>${tax}</td>
+            <td>${finalPrice}</td>
+            <td onClick={() => removeFromCart(_id)}><button class="btn bg-error btn-sm font-bold">Delete</button></td>
+            <td onClick={deleteCart}><button class="btn bg-error btn-sm font-bold">Delete All</button></td>
+            <td><button class="btn btn-sm font-bold">Order</button></td>
         </tr>
     );
 };

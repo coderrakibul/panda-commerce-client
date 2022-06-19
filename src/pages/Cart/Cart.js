@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getStoredCart, removeFromDb } from '../../utilities/localdb';
+import { deleteShoppingCart, getStoredCart, removeFromDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
 import CartRow from './CartRow';
 
@@ -37,6 +37,13 @@ const Cart = () => {
         window.location.reload(false);
     }
 
+    const deleteCart = () => {
+        deleteShoppingCart();
+        window.location.reload(false);
+    }
+
+
+
 
     if (loading) {
         return <Loading></Loading>
@@ -51,11 +58,14 @@ const Cart = () => {
                         <tr>
                             <th>Serial</th>
                             <th>Product Code</th>
-                            <th>ID</th>
                             <th>Image</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Shipping</th>
+                            <th>Tax 10%</th>
+                            <th>Total</th>
                             <th>Delete</th>
+                            <th>Delete All</th>
                             <th>Order</th>
                         </tr>
                     </thead>
@@ -66,6 +76,7 @@ const Cart = () => {
                                 key={cartRow._id}
                                 index={index}
                                 removeFromCart={removeFromCart}
+                                deleteCart={deleteCart}
                             ></CartRow>)
                         }
                     </tbody>
