@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb } from '../../utilities/localdb';
+import { addToDb, getStoredCart } from '../../utilities/localdb';
 import Cart from '../Cart/Cart';
 import Loading from '../Shared/Loading';
 import Shoe from './Shoe';
@@ -17,7 +17,21 @@ const Shoes = () => {
                 setShoes(data)
                 setLoading(false)
             })
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        const storedCart = getStoredCart();
+        const savedCart = [];
+        for (const id in storedCart) {
+            const addedShoes = shoes.find(shoe => shoe._id === id)
+            if (addedShoes) {
+                const quantity = storedCart[id];
+                addedShoes.quantity = quantity;
+                savedCart.push(addedShoes);
+            }
+        }
+        setCart(savedCart);
+    }, [shoes]);
 
     const handleAddToCart = (shoe) => {
         const newCart = [...cart, shoe];
