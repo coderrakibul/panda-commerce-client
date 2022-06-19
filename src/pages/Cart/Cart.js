@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Cart = ({cart}) => {
+const Cart = ({ cart }) => {
     console.log(cart);
     return (
         <div>
-            <h2>This is cart page {cart?.length}</h2>        
+            <h2>Total item {cart?.length}</h2>
         </div>
     );
 };
