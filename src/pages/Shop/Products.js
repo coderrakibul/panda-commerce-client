@@ -1,27 +1,27 @@
 import React, { useEffect, useState } from 'react';
 import { addToDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
-import Shoe from './Shoe';
+import Product from './Product';
 
-const Shoes = () => {
-    const [shoes, setShoes] = useState([]);
+const Products = () => {
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/shoe')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => {
-                setShoes(data)
+                setProducts(data)
                 setLoading(false)
             })
     }, []);
 
-    const handleAddToCart = (shoe) => {
-        const newCart = [...cart, shoe];
+    const handleAddToCart = (product) => {
+        const newCart = [...cart, product];
         setCart(newCart);
-        addToDb(shoe._id);
+        addToDb(product._id);
     }
 
 
@@ -31,19 +31,18 @@ const Shoes = () => {
 
     return (
         <div className='p-4'>
-            <h2 className='text-center text-2xl font-bold m-8'>Total Shoes: {shoes.length}</h2>
-            <h2 className='text-2xl font-bold mb-4'>Shoe Collection</h2>
+            <h2 className='text-center text-2xl font-bold m-8'>Product Collection: {products.length}</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
-                    shoes.map(shoe => <Shoe
-                        key={shoe._id}
-                        shoe={shoe}
+                    products.map(product => <Product
+                        key={product._id}
+                        product={product}
                         handleAddToCart={handleAddToCart}
-                    ></Shoe>)
+                    ></Product>)
                 }
             </div>
         </div>
     );
 };
 
-export default Shoes;
+export default Products;

@@ -1,16 +1,11 @@
 import React from 'react';
-import Shoes from './Shoes';
-import Jackets from './Jackets';
-import Bags from './Bags';
+import Products from './Products';
 
 const Shop = () => {
 
-
     return (
         <div>
-            <Shoes></Shoes>
-            <Jackets></Jackets>
-            <Bags></Bags>
+            <Products></Products>
         </div>
     );
 };

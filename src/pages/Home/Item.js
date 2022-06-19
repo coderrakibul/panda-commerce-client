@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Bag = ({ bag }) => {
-    const { name, model, image, price, description } = bag;
+const Item = ({ item }) => {
+    const { name, model, image, price, description } = item;
     return (
         <div class="card bg-base-100 shadow-xl">
             <div class="px-10 pt-10 mx-auto">
@@ -11,15 +11,15 @@ const Bag = ({ bag }) => {
                 <h2>Brand: {name}</h2>
                 <p>Code: {model}</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>
-                <label for="bag-modal" class="btn modal-button">Description</label>
+                <label for="shoe-modal" class="btn modal-button">Description</label>
 
-                <input type="checkbox" id="bag-modal" class="modal-toggle" />
+                <input type="checkbox" id="shoe-modal" class="modal-toggle" />
                 <div class="modal modal-bottom sm:modal-middle">
                     <div class="modal-box">
                         <h3 class="font-bold text-lg">Description!</h3>
                         <p class="py-4">{description}</p>
                         <div class="modal-action">
-                            <label for="bag-modal" class="btn bg-red-700">Close</label>
+                            <label for="shoe-modal" class="btn bg-red-700">Close</label>
                         </div>
                     </div>
                 </div>
@@ -28,4 +28,4 @@ const Bag = ({ bag }) => {
     );
 };
 
-export default Bag;
+export default Item;
