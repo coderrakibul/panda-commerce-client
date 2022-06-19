@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Shoe = ({ shoe, handleAddToCart }) => {
+const Shoe = ({ shoe, handleAddToCart, removeFromCart }) => {
     const { name, model, image, price, description } = shoe;
 
     return (

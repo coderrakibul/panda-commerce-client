@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { addToDb } from '../../utilities/localdb';
 import Cart from '../Cart/Cart';
 import Loading from '../Shared/Loading';
 import Shoe from './Shoe';
@@ -19,10 +20,11 @@ const Shoes = () => {
     }, [])
 
     const handleAddToCart = (shoe) => {
-        console.log(shoe);
         const newCart = [...cart, shoe];
         setCart(newCart);
+        addToDb(shoe._id);
     }
+
 
     if (loading) {
         return <Loading></Loading>
