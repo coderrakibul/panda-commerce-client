@@ -4,16 +4,16 @@ import Loading from '../Shared/Loading';
 import CartRow from './CartRow';
 
 const Cart = () => {
-    const [shoes, setShoes] = useState([]);
+    const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
 
     useEffect(() => {
         setLoading(true)
-        fetch('http://localhost:5000/shoe')
+        fetch('http://localhost:5000/product')
             .then(res => res.json())
             .then(data => {
-                setShoes(data)
+                setProducts(data)
                 setLoading(false)
             })
     }, []);
@@ -22,15 +22,15 @@ const Cart = () => {
         const storedCart = getStoredCart();
         const savedCart = [];
         for (const id in storedCart) {
-            const addedShoes = shoes.find(shoe => shoe._id === id)
-            if (addedShoes) {
+            const addedProducts = products.find(product => product._id === id)
+            if (addedProducts) {
                 const quantity = storedCart[id];
-                addedShoes.quantity = quantity;
-                savedCart.push(addedShoes);
+                addedProducts.quantity = quantity;
+                savedCart.push(addedProducts);
             }
         }
         setCart(savedCart);
-    }, [shoes]);
+    }, [products]);
 
     if (loading) {
         return <Loading></Loading>
@@ -38,7 +38,7 @@ const Cart = () => {
 
     return (
         <div>
-            <h2 className='text-center text-2xl font-bold m-8'>Total Item: {cart.length}</h2>
+            <h2 className='text-center text-2xl font-bold my-8'>Total Item: {cart.length}</h2>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     <thead>

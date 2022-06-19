@@ -31,7 +31,7 @@ const Products = () => {
 
     return (
         <div className='p-4'>
-            <h2 className='text-center text-2xl font-bold m-8'>Product Collection: {products.length}</h2>
+            <h2 className='text-center text-2xl font-bold my-8'>Product Collection: {products.length}</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
                     products.map(product => <Product
