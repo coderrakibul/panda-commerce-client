@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartRow = ({ cartRow, index }) => {
+const CartRow = ({ cartRow, index, removeFromCart }) => {
     const { model, _id, image, quantity } = cartRow;
     return (
         <tr>
@@ -9,7 +9,7 @@ const CartRow = ({ cartRow, index }) => {
             <td className='text-orange-500 font-bold'>{_id}</td>
             <td><img className='w-16' src={image} alt="" /></td>
             <td>{quantity}</td>
-            <td><button class="btn btn-error">Delete</button></td>
+            <td onClick={() => removeFromCart(_id)}><button class="btn btn-error">Delete</button></td>
         </tr>
     );
 };
