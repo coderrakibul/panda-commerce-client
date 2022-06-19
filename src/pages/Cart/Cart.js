@@ -34,8 +34,8 @@ const Cart = () => {
 
     const removeFromCart = (id) => {
         removeFromDb(id);
+        window.location.reload(false);
     }
-
 
 
     if (loading) {
@@ -53,8 +53,10 @@ const Cart = () => {
                             <th>Product Code</th>
                             <th>ID</th>
                             <th>Image</th>
+                            <th>Price</th>
                             <th>Quantity</th>
-                            <th>Action</th>
+                            <th>Delete</th>
+                            <th>Order</th>
                         </tr>
                     </thead>
                     <tbody>
