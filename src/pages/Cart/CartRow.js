@@ -28,11 +28,12 @@ const CartRow = ({ cartRow, removeFromCart }) => {
                     <h3>Quantity: {quantity}</h3>
                     <h3>Shipping: ${shipping}</h3>
                     <h3>TAX- 10%: ${tax}</h3>
-                    <h3 className='font-bold'>Final Price: <span className='text-orange-500'> ${finalPrice}</span></h3>
+                    <h3 className='font-bold'>Total Price: <span className='text-orange-500'> ${finalPrice}</span></h3>
                 </div>
 
                 <div className='flex flex-col gap-2'>
                     <button onClick={() => removeFromCart(_id)} className="btn bg-red-600 btn-sm font-bold">Delete</button>
+
                     <button className="btn btn-sm font-bold">Order</button>
 
                 </div>
