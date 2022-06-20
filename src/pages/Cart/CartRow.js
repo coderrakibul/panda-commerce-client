@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CartRow = ({ cartRow, removeFromCart, deleteCart }) => {
+const CartRow = ({ cartRow, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cartRow;
 
     const totalPrice = price * quantity;
@@ -9,19 +9,6 @@ const CartRow = ({ cartRow, removeFromCart, deleteCart }) => {
     const finalPrice = Math.round(totalPrice + shipping + parseFloat(tax));
 
     return (
-        // <tr className='font-bold'>
-        //     <th>{index + 1}</th>
-        //     <td>{model}</td>
-        //     <td><img className='w-16' src={image} alt="" /></td>
-        //     <td>${price}</td>
-        //     <td>{quantity}</td>
-        //     <td>${shipping}</td>
-        //     <td>${tax}</td>
-        //     <td>${finalPrice}</td>
-        //     <td></td>
-        //     <td></td>
-        //     <td></td>
-        // </tr>
         <div className='flex justify-center items-center grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2'>
             <div className='flex justify-center items-center gap-5 my-2'>
                 <div>
@@ -31,8 +18,8 @@ const CartRow = ({ cartRow, removeFromCart, deleteCart }) => {
                 <div>
                     <h3>Name: {name}</h3>
                     <h3>Model: {model}</h3>
-                    <h3>Id: {_id}</h3>
-                    <h3>Price: ${price}</h3>
+                    <h3>Id: <span className='font-bold text-orange-500'>{_id}</span></h3>
+                    <h3 className='font-bold'>Price: <span className='text-orange-500'> ${price}</span> </h3>
                 </div>
             </div>
 
@@ -41,7 +28,7 @@ const CartRow = ({ cartRow, removeFromCart, deleteCart }) => {
                     <h3>Quantity: {quantity}</h3>
                     <h3>Shipping: ${shipping}</h3>
                     <h3>TAX- 10%: ${tax}</h3>
-                    <h3>Final Price: ${finalPrice}</h3>
+                    <h3 className='font-bold'>Final Price: <span className='text-orange-500'> ${finalPrice}</span></h3>
                 </div>
 
                 <div className='flex flex-col gap-2'>

@@ -50,7 +50,7 @@ const Cart = () => {
     }
 
     return (
-        <div className='container mx-auto my-8'>
+        <div className='container mx-auto mb-8'>
             <h2 className='text-center text-2xl font-bold my-8'>Total Item: {cart.length}</h2>
             <div>
                 {
