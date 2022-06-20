@@ -1,22 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { deleteShoppingCart, getStoredCart, removeFromDb } from '../../utilities/localdb';
-import Loading from '../Shared/Loading';
 import CartRow from './CartRow';
 
 const Cart = () => {
-    const [products, setProducts] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
 
-    useEffect(() => {
-        setLoading(true)
-        fetch('http://localhost:5000/product')
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data)
-                setLoading(false)
-            })
-    }, []);
+
 
     useEffect(() => {
         const storedCart = getStoredCart();
@@ -48,19 +37,12 @@ const Cart = () => {
 
     const removeFromCart = (id) => {
         removeFromDb(id);
-        window.location.reload(false);
+
     }
 
     const deleteCart = () => {
         deleteShoppingCart();
-        window.location.reload(false);
-    }
 
-
-
-
-    if (loading) {
-        return <Loading></Loading>
     }
 
     return (
