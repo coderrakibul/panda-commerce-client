@@ -2,6 +2,7 @@ import React from 'react';
 
 const Product = ({ product, handleAddToCart }) => {
     const { name, model, image, price, description } = product;
+    
     return (
         <div class="card bg-base-100 shadow-xl">
 
