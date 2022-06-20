@@ -32,8 +32,8 @@ const CartRow = ({ cartRow, removeFromCart }) => {
                 </div>
 
                 <div className='flex flex-col gap-2'>
-                    <button onClick={() => removeFromCart(_id)} class="btn bg-red-600 btn-sm font-bold">Delete</button>
-                    <button class="btn btn-sm font-bold">Order</button>
+                    <button onClick={() => removeFromCart(_id)} className="btn bg-red-600 btn-sm font-bold">Delete</button>
+                    <button className="btn btn-sm font-bold">Order</button>
 
                 </div>
             </div>

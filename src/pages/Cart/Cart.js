@@ -5,13 +5,10 @@ import CartRow from './CartRow';
 const Cart = () => {
     const [cart, setCart] = useState([]);
 
-
-
     useEffect(() => {
         const storedCart = getStoredCart();
         const savedCart = [];
         const keys = Object.keys(storedCart);
-        console.log(keys);
         fetch('http://localhost:5000/productByKeys', {
             method: 'POST',
             headers: {
@@ -21,7 +18,6 @@ const Cart = () => {
         })
             .then(res => res.json())
             .then(products => {
-                console.log(products);
                 for (const id in storedCart) {
                     const addedProducts = products.find(product => product._id === id)
                     if (addedProducts) {
@@ -58,7 +54,7 @@ const Cart = () => {
                 }
             </div>
             {
-                cart.length > 1 ? <button onClick={deleteCart} class="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
+                cart.length > 1 ? <button onClick={deleteCart} className="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
             }
         </div>
     );

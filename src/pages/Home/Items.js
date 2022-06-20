@@ -24,7 +24,7 @@ const Items = () => {
     return (
         <div className='m-8 border-2 p-4'>
             <h2 className='text-center text-2xl font-bold my-2'>Product Items</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
+            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5">
                 {
                     items.map(item => <Item
                         key={item._id}
