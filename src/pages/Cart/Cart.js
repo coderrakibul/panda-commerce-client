@@ -32,13 +32,17 @@ const Cart = () => {
     }, [cart]);
 
     const removeFromCart = (id) => {
-        removeFromDb(id);
-
+        const confirmDelete = window.confirm("do you want to delete this item?");
+        if (confirmDelete === true) {
+            removeFromDb(id);
+        }
     }
 
     const deleteCart = () => {
-        deleteShoppingCart();
-
+        const confirmDelete = window.confirm("do you want to delete all items?");
+        if (confirmDelete === true) {
+            deleteShoppingCart();
+        }
     }
 
     return (
