@@ -51,8 +51,24 @@ const Header = ({ children }) => {
             </div>
         </label></NavLink></li>
         {
-            user ?
-                <li><NavLink to="/login" onClick={logout} className='rounded-lg font-bold text-white'>Signout</NavLink></li>
+            user ? <>
+                
+
+                <div class="dropdown dropdown-end">
+                    <li><NavLink className='rounded-lg font-bold text-white' to=""><button>{user.displayName}</button></NavLink></li>
+                    <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                        <li>
+                            <p className="rounded-lg font-bold justify-between">
+                                Profile
+                                <span class="badge">New</span>
+                            </p>
+                        </li>
+                        <li><p className='rounded-lg font-bold'>Settings</p></li>
+                        <li><NavLink to="/login" onClick={logout} className='rounded-lg font-bold'>Signout</NavLink></li>
+                    </ul>
+                </div>
+
+            </>
                 : <li><NavLink to="/login" className='rounded-lg font-bold text-white'>Login</NavLink></li>
         }
     </>
