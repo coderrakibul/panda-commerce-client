@@ -7,6 +7,18 @@ const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
     const [cart, setCart] = useState([]);
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/productCount')
+            .then(res => res.json())
+            .then(data => {
+                const count = data.count;
+                const pages = Math.ceil(count / 8);
+                setPageCount(pages);
+            })
+    }, []);
 
     useEffect(() => {
         setLoading(true)
@@ -41,6 +53,10 @@ const Products = () => {
                     ></Product>)
                 }
             </div>
+            {
+                [...Array(pageCount).keys()]
+                    .map(number => <button onClick={() => setPage(number)} className={page === number ? 'btn btn-active btn-primary mx-2 my-8' : 'btn btn-sm mx-2 my-8'}>{number}</button>)
+            }
         </div>
     );
 };
