@@ -50,39 +50,18 @@ const Cart = () => {
     }
 
     return (
-        <div>
+        <div className='container mx-auto my-8'>
             <h2 className='text-center text-2xl font-bold my-8'>Total Item: {cart.length}</h2>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
-                    <thead>
-                        <tr>
-                            <th>Serial</th>
-                            <th>Product Code</th>
-                            <th>Image</th>
-                            <th>Price</th>
-                            <th>Quantity</th>
-                            <th>Shipping</th>
-                            <th>Tax 10%</th>
-                            <th>Total</th>
-                            <th>Delete</th>
-                            <th>Delete All</th>
-                            <th>Order</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            cart.map((cartRow, index) => <CartRow
-                                cartRow={cartRow}
-                                key={cartRow._id}
-                                index={index}
-                                removeFromCart={removeFromCart}
-                                deleteCart={deleteCart}
-                            ></CartRow>)
-                        }
-                    </tbody>
-                </table>
+            <div>
+                {
+                    cart.map(cartRow => <CartRow
+                        cartRow={cartRow}
+                        key={cartRow._id}
+                        removeFromCart={removeFromCart}
+                    ></CartRow>)
+                }
             </div>
-
+            <button onClick={deleteCart} class="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button>
         </div>
     );
 };
