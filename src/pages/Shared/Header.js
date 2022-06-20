@@ -1,9 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
+import auth from '../../firebase.init';
 import { getStoredCart } from '../../utilities/localdb';
 
 const Header = ({ children }) => {
     const [cart, setCart] = useState([]);
+
+    const [user] = useAuthState(auth);
+
+    const logout = () => {
+        signOut(auth);
+    };
 
     useEffect(() => {
         const storedCart = getStoredCart();
@@ -44,7 +53,10 @@ const Header = ({ children }) => {
         </label></NavLink></li>
 
 
-        <li><NavLink className='rounded-lg font-bold text-white' to="/login">Login</NavLink></li>
+        {
+            user ? <li><NavLink to="/login" onClick={logout} className='rounded-lg font-bold text-white'>Signout</NavLink></li>
+                : <li><NavLink to="/login" className='rounded-lg font-bold text-white'>Login</NavLink></li>
+        }
     </>
 
     return (
