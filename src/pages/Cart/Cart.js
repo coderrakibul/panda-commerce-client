@@ -29,7 +29,7 @@ const Cart = () => {
                 setCart(savedCart);
             })
 
-    }, []);
+    }, [cart]);
 
     const removeFromCart = (id) => {
         removeFromDb(id);
