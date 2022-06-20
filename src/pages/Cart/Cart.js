@@ -21,16 +21,30 @@ const Cart = () => {
     useEffect(() => {
         const storedCart = getStoredCart();
         const savedCart = [];
-        for (const id in storedCart) {
-            const addedProducts = products.find(product => product._id === id)
-            if (addedProducts) {
-                const quantity = storedCart[id];
-                addedProducts.quantity = quantity;
-                savedCart.push(addedProducts);
-            }
-        }
-        setCart(savedCart);
-    }, [products]);
+        const keys = Object.keys(storedCart);
+        console.log(keys);
+        fetch('http://localhost:5000/productByKeys', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(keys)
+        })
+            .then(res => res.json())
+            .then(products => {
+                console.log(products);
+                for (const id in storedCart) {
+                    const addedProducts = products.find(product => product._id === id)
+                    if (addedProducts) {
+                        const quantity = storedCart[id];
+                        addedProducts.quantity = quantity;
+                        savedCart.push(addedProducts);
+                    }
+                }
+                setCart(savedCart);
+            })
+
+    }, []);
 
     const removeFromCart = (id) => {
         removeFromDb(id);
@@ -61,7 +75,9 @@ const Cart = () => {
                     ></CartRow>)
                 }
             </div>
-            <button onClick={deleteCart} class="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button>
+            {
+                cart.length > 1 ? <button onClick={deleteCart} class="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
+            }
         </div>
     );
 };
