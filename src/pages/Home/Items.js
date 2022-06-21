@@ -5,7 +5,7 @@ import Item from './Item';
 
 const Items = () => {
     const [items, setItems] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         setLoading(true)
