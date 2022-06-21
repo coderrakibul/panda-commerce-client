@@ -18,7 +18,7 @@ const Header = ({ children }) => {
         const storedCart = getStoredCart();
         const savedCart = [];
         const keys = Object.keys(storedCart);
-        fetch('https://polar-lake-06561.herokuapp.com/productByKeys', {
+        fetch('http://localhost:5000/productByKeys', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

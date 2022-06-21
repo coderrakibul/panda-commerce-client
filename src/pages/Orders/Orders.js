@@ -7,7 +7,7 @@ const Orders = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://polar-lake-06561.herokuapp.com/order')
+        fetch('http://localhost:5000/order')
             .then(res => res.json())
             .then(data => {
                 setOrders(data)

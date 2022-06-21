@@ -14,7 +14,7 @@ const Products = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch(`https://polar-lake-06561.herokuapp.com/product?page=${page}&size=${size}`)
+        fetch(`http://localhost:5000/product?page=${page}&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -23,7 +23,7 @@ const Products = () => {
     }, [page, size]);
 
     useEffect(() => {
-        fetch('https://polar-lake-06561.herokuapp.com/productCount')
+        fetch('http://localhost:5000/productCount')
             .then(res => res.json())
             .then(data => {
                 const count = data.count;
