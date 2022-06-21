@@ -9,6 +9,9 @@ import SignUp from './pages/Login/Signup';
 import Orders from './pages/Orders/Orders';
 import Header from './pages/Shared/Header';
 import Shop from './pages/Shop/Shop';
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -24,6 +27,7 @@ function App() {
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
+        <ToastContainer></ToastContainer>
       </Header>
 
     </div>

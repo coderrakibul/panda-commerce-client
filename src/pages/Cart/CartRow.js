@@ -20,7 +20,6 @@ const CartRow = ({ cartRow, removeFromCart }) => {
             image: image,
             finalPrice: finalPrice
         }
-        console.log(order)
 
         fetch('http://localhost:5000/order', {
             method: 'POST',
