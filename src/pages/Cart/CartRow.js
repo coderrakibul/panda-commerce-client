@@ -31,13 +31,14 @@ const CartRow = ({ cartRow, removeFromCart }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    toast('order added')
+                    toast('Order Added Success!')
                 }
                 else {
                     toast.error('already added')
                 }
             });
     }
+
 
     return (
         <div className='flex justify-center items-center grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2'>

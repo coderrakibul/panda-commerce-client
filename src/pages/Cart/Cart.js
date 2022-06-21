@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { deleteShoppingCart, getStoredCart, removeFromDb } from '../../utilities/localdb';
 import CartRow from './CartRow';
+import { toast } from 'react-toastify';
 
 const Cart = () => {
     const [cart, setCart] = useState([]);
@@ -34,6 +35,7 @@ const Cart = () => {
     const removeFromCart = (id) => {
         const confirmDelete = window.confirm("do you want to delete this item?");
         if (confirmDelete === true) {
+            toast('Item Successfully Deleted!');
             removeFromDb(id);
         }
     }
