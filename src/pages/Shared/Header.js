@@ -52,7 +52,7 @@ const Header = ({ children }) => {
         </label></NavLink></li>
         {
             user ? <>
-                
+
 
                 <div class="dropdown dropdown-end">
                     <li><NavLink className='rounded-lg font-bold text-white' to=""><button>{user.displayName}</button></NavLink></li>

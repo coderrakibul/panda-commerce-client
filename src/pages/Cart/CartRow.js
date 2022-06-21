@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const CartRow = ({ cartRow, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cartRow;
@@ -7,6 +8,33 @@ const CartRow = ({ cartRow, removeFromCart }) => {
     const shipping = 5;
     const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);
     const finalPrice = Math.round(totalPrice + shipping + parseFloat(tax));
+
+
+    const handleOrder = () => {
+
+        const order = {
+            productId: _id,
+            productName: name,
+        }
+        console.log(order)
+
+        fetch('http://localhost:5000/order', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(order)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.success) {
+                    toast('order added')
+                }
+                else {
+                    toast.error('already added')
+                }
+            });
+    }
 
     return (
         <div className='flex justify-center items-center grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2'>
@@ -34,7 +62,7 @@ const CartRow = ({ cartRow, removeFromCart }) => {
                 <div className='flex flex-col gap-2'>
                     <button onClick={() => removeFromCart(_id)} className="btn bg-red-600 btn-sm font-bold">Delete</button>
 
-                    <button className="btn btn-sm font-bold">Order</button>
+                    <button onClick={handleOrder} className="btn btn-sm font-bold">Order</button>
 
                 </div>
             </div>
