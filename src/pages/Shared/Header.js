@@ -97,7 +97,7 @@ const Header = ({ children }) => {
 
             <div className="drawer-side">
                 <label htmlFor="my-drawer-3" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-50 bg-accent">
+                <ul className="menu p-4 overflow-y-auto w-3/5 bg-accent">
                     {menuItems}
                 </ul>
             </div>
