@@ -18,12 +18,10 @@ const CartRow = ({ cartRow, removeFromCart }) => {
             model: model,
             quantity: quantity,
             image: image,
-            price: price,
-            shipping: shipping,
-            tax: tax,
             finalPrice: finalPrice
         }
-        
+        console.log(order)
+
         fetch('http://localhost:5000/order', {
             method: 'POST',
             headers: {
