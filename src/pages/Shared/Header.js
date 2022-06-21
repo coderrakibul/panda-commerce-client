@@ -50,6 +50,7 @@ const Header = ({ children }) => {
                 <span className="badge badge-sm indicator-item text-white">{cart.length}</span>
             </div>
         </label></NavLink></li>
+        <li><NavLink className='rounded-lg font-bold text-white' to="/orders">Orders</NavLink></li>
         {
             user ? <>
 
