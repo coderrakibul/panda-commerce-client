@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { addToDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
 import Product from './Product';
+import { toast } from 'react-toastify';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -35,6 +36,7 @@ const Products = () => {
         const newCart = [...cart, product];
         setCart(newCart);
         addToDb(product._id);
+        toast('Added to Cart');
     }
 
 
