@@ -35,6 +35,21 @@ const Carts = () => {
         }
     }
 
+    const removeCart = () => {
+        const proceed = window.confirm('are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/cart?user=${user.email}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+
+        }
+    }
+
 
 
     if (loading) {
@@ -54,7 +69,7 @@ const Carts = () => {
                 }
             </div>
             {
-                carts.length > 1 ? <button className="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
+                carts.length > 1 ? <button onClick={removeCart} className="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
             }
         </div>
     );
