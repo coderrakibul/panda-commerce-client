@@ -4,11 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
-
 const Carts = () => {
     const [carts, setCarts] = useState([]);
     const [user] = useAuthState(auth);
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         if (user) {
@@ -19,6 +18,23 @@ const Carts = () => {
             setLoading(false);
         }
     }, [carts, user])
+
+
+    const removeFromCart = (id) => {
+        const proceed = window.confirm('are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/cart/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+
+        }
+    }
+
 
 
     if (loading) {
@@ -33,6 +49,7 @@ const Carts = () => {
                     carts.map(cart => <Cart
                         key={cart._id}
                         cart={cart}
+                        removeFromCart={removeFromCart}
                     ></Cart>)
                 }
             </div>

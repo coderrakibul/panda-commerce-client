@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cart;
 
     const totalPrice = price * quantity;
@@ -33,7 +33,7 @@ const Cart = ({ cart }) => {
                 </div>
 
                 <div className='flex flex-col gap-2'>
-                    <button className="btn bg-red-600 btn-sm font-bold">Delete</button>
+                    <button onClick={() => removeFromCart(cart._id)} className="btn bg-red-600 btn-sm font-bold">Delete</button>
 
                     <button className="btn btn-sm font-bold">Order</button>
 
