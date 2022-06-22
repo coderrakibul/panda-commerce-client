@@ -1,7 +1,47 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
-const Product = ({ product, handleAddToCart }) => {
-    const { name, model, image, price, description } = product;
+const Product = ({ product }) => {
+    const { _id, name, model, image, price, description } = product;
+
+    const [user, loading] = useAuthState(auth);
+
+    const handleAddToCart = (id) => {
+        const cart = {
+            productId: product._id,
+            name,
+            model,
+            user: user.email,
+            price,
+            image
+        }
+
+        fetch('http://localhost:5000/cart', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(cart)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.success) {
+                    toast("Product added to Cart")
+                }
+                else {
+                    toast.error("Already Exist")
+                }
+            })
+
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     return (
         <div className="card bg-base-100 shadow-xl">
@@ -15,7 +55,7 @@ const Product = ({ product, handleAddToCart }) => {
                 <p>Code: {model}</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>
                 <div className="card-actions w-full">
-                    <button onClick={() => handleAddToCart(product)} className="btn btn-primary w-full font-bold">Add to Cart</button>
+                    <button onClick={() => handleAddToCart(_id)} className="btn btn-primary w-full font-bold">Add to Cart</button>
                 </div>
 
                 <input type="checkbox" id="shoe-modal" className="modal-toggle" />

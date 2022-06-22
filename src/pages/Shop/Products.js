@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { addToDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
 import Product from './Product';
-import { toast } from 'react-toastify';
 
 const Products = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
-    const [cart, setCart] = useState([]);
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
     const [size, setSize] = useState(10);
+
 
     useEffect(() => {
         setLoading(true)
@@ -32,14 +30,6 @@ const Products = () => {
             })
     }, []);
 
-    const handleAddToCart = (product) => {
-        const newCart = [...cart, product];
-        setCart(newCart);
-        addToDb(product._id);
-        toast('Added to Cart');
-    }
-
-
     if (loading) {
         return <Loading></Loading>
     }
@@ -52,7 +42,6 @@ const Products = () => {
                     products.map(product => <Product
                         key={product._id}
                         product={product}
-                        handleAddToCart={handleAddToCart}
                     ></Product>)
                 }
             </div>
