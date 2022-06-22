@@ -3,13 +3,23 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
+import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
     const { _id, name, model, image, price, description } = product;
 
     const [user, loading] = useAuthState(auth);
 
+    const navigate = useNavigate();
+
+    const navigateUser = () => {
+        if (!user) {
+            navigate("/login");
+        }
+    }
+
     const handleAddToCart = (id) => {
+        navigateUser();
         const cart = {
             productId: product._id,
             name,
