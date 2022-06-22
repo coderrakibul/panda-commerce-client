@@ -26,7 +26,7 @@ const Header = ({ children }) => {
                 .then(data => setCarts(data));
             setLoading(false);
         }
-    }, [user])
+    }, [user, carts])
 
     if (loading) {
         return <Loading></Loading>
