@@ -3,42 +3,34 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
 import auth from '../../firebase.init';
-import { getStoredCart } from '../../utilities/localdb';
+import Loading from '../Shared/Loading';
 
 const Header = ({ children }) => {
-    const [cart, setCart] = useState([]);
-
+    const [carts, setCarts] = useState([]);
     const [user] = useAuthState(auth);
+    const [loading, setLoading] = useState(false)
 
     const logout = () => {
         signOut(auth);
     };
 
     useEffect(() => {
-        const storedCart = getStoredCart();
-        const savedCart = [];
-        const keys = Object.keys(storedCart);
-        fetch('http://localhost:5000/productByKeys', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(keys)
-        })
-            .then(res => res.json())
-            .then(products => {
-                for (const id in storedCart) {
-                    const addedProducts = products.find(product => product._id === id)
-                    if (addedProducts) {
-                        const quantity = storedCart[id];
-                        addedProducts.quantity = quantity;
-                        savedCart.push(addedProducts);
-                    }
+        if (user) {
+            setLoading(true);
+            fetch(`http://localhost:5000/cart?user=${user.email}`, {
+                method: 'GET',
+                headers: {
                 }
-                setCart(savedCart);
             })
+                .then(res => res.json())
+                .then(data => setCarts(data));
+            setLoading(false);
+        }
+    }, [user])
 
-    }, [cart]);
+    if (loading) {
+        return <Loading></Loading>
+    }
 
 
     const menuItems = <>
@@ -47,7 +39,7 @@ const Header = ({ children }) => {
         <li><NavLink className='rounded-lg font-bold text-white p-0 m-0' to="/cart">  <label tabIndex="0" className="btn btn-ghost">
             <div className="indicator">
                 <svg xmlns="http://www.w3.org/2000/svg" className="w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                <span className="badge badge-sm indicator-item text-white">{cart.length}</span>
+                <span className="badge badge-sm indicator-item text-white">{carts.length}</span>
             </div>
         </label></NavLink></li>
         <li><NavLink className='rounded-lg font-bold text-white' to="/orders">Orders</NavLink></li>
