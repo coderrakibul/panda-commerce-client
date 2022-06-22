@@ -13,16 +13,13 @@ const Carts = () => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`http://localhost:5000/cart?user=${user.email}`, {
-                method: 'GET',
-                headers: {
-                }
-            })
+            fetch(`http://localhost:5000/cart?user=${user.email}`)
                 .then(res => res.json())
                 .then(data => setCarts(data));
             setLoading(false);
         }
     }, [user])
+
 
     if (loading) {
         return <Loading></Loading>
