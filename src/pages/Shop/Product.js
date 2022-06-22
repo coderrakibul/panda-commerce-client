@@ -28,7 +28,6 @@ const Product = ({ product }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.success) {
                     toast(`${model} added to Cart `)
                 }
