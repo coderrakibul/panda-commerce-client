@@ -8,9 +8,6 @@ const CartRow = ({ cartRow, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cartRow;
     const [user, loading] = useAuthState(auth);
 
-
-
-
     const totalPrice = price * quantity;
     const shipping = 5;
     const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);

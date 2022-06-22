@@ -30,6 +30,7 @@ const Orders = () => {
                             <th>Number</th>
                             <th>Image</th>
                             <th>Model</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -40,9 +41,16 @@ const Orders = () => {
                                 index={index}
                             ></Order>)
                         }
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td className='font-bold'>Total Pay =</td>
+                            <td className='font-bold text-xl'>{}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
             <button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Proceed Order</button>
         </div>
     );
