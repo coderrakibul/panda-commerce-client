@@ -30,10 +30,10 @@ const Product = ({ product }) => {
             .then(data => {
                 console.log(data);
                 if (data.success) {
-                    toast("Product added to Cart")
+                    toast(`${model} added to Cart `)
                 }
                 else {
-                    toast.error("Already Exist")
+                    toast.error(`${model} Already Exist`)
                 }
             })
 
