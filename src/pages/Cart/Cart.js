@@ -30,7 +30,7 @@ const Cart = () => {
                 setCart(savedCart);
             })
 
-    }, [cart]);
+    }, []);
 
     const removeFromCart = (id) => {
         const confirmDelete = window.confirm("do you want to delete this item?");

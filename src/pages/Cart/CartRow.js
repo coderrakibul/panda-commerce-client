@@ -1,18 +1,28 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
+import Loading from '../Shared/Loading';
 
 const CartRow = ({ cartRow, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cartRow;
+    const [user, loading] = useAuthState(auth);
+
+
+
 
     const totalPrice = price * quantity;
     const shipping = 5;
     const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);
     const finalPrice = Math.round(totalPrice + shipping + parseFloat(tax));
 
+    if (loading) {
+        return <Loading></Loading>
+    }
 
     const handleOrder = () => {
-
         const order = {
+            user: user.email,
             productId: _id,
             productName: name,
             model: model,
@@ -27,6 +37,7 @@ const CartRow = ({ cartRow, removeFromCart }) => {
                 'content-type': 'application/json'
             },
             body: JSON.stringify(order)
+
         })
             .then(res => res.json())
             .then(data => {
