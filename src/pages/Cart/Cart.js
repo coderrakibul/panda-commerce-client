@@ -1,22 +1,12 @@
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
-import Loading from '../Shared/Loading';
 
 const Cart = ({ cart }) => {
     const { name, model, _id, image, price, quantity } = cart;
-    const [user, loading] = useAuthState(auth);
 
     const totalPrice = price * quantity;
     const shipping = 5;
     const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);
     const finalPrice = Math.round(totalPrice + shipping + parseFloat(tax));
-
-    if (loading) {
-        return <Loading></Loading>
-    }
-
-
 
 
     return (
