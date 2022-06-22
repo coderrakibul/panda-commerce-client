@@ -38,7 +38,7 @@ const Header = ({ children }) => {
                 setCart(savedCart);
             })
 
-    }, []);
+    }, [cart]);
 
 
     const menuItems = <>

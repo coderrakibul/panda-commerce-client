@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import { removeFromDb } from '../../utilities/localdb';
 import Loading from '../Shared/Loading';
 
 const CartRow = ({ cartRow, removeFromCart }) => {
@@ -45,6 +46,7 @@ const CartRow = ({ cartRow, removeFromCart }) => {
                     toast.error('already added')
                 }
             });
+            removeFromDb(_id);
     }
 
 
