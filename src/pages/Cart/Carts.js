@@ -18,7 +18,7 @@ const Carts = () => {
                 .then(data => setCarts(data));
             setLoading(false);
         }
-    }, [user])
+    }, [carts, user])
 
 
     if (loading) {
