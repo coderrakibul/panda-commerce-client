@@ -37,9 +37,16 @@ const Payment = () => {
 
         <div>
             <h2 className='text-center text-2xl font-bold my-8'> Please Pay to Purchase! </h2>
-            <div class="card w-4/5 md:w-3/6 lg:w-2/5 mx-auto bg-base-100 shadow-xl">
+            <div class="card w-11/12 md:w-3/6 lg:w-2/5 mx-auto bg-base-100 shadow-xl mb-16">
                 <div class="card-body">
-                    <h2 class="card-title mb-4">You Have to pay <span className='text-xl font-bold text-orange-500'>${totalPay}</span></h2>
+                    <h2>Hello <span className='text-xl font-bold text-info flex'>{user.displayName},</span></h2>
+                    <h2 class="card-title mb-4 flex">You have to pay <span className='text-xl font-bold text-orange-500'>${totalPay}</span> to buy.</h2>
+                    <h2 className='text-xl'>Please! provide the required info.</h2>
+                </div>
+            </div>
+
+            <div className='card w-11/12 md:w-3/6 lg:w-2/5 mx-auto bg-base-100 shadow-xl'>
+                <div class="card-body">
                     <Elements stripe={stripePromise}>
                         <CheckoutForm />
                     </Elements>
