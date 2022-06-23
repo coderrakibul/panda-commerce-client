@@ -9,6 +9,12 @@ const Orders = () => {
     const [loading, setLoading] = useState(false);
     const [user] = useAuthState(auth);
 
+    let totalPay = 0;
+
+    for(const order of orders){
+        totalPay = totalPay + order.finalPrice
+    }
+
     useEffect(() => {
         if (user) {
             setLoading(true);
@@ -51,7 +57,7 @@ const Orders = () => {
                                 <td></td>
                                 <td></td>
                                 <td className='font-bold'>Total Pay =</td>
-                                <td className='font-bold text-xl'>{ }</td>
+                                <td className='font-bold text-xl'>{totalPay}</td>
                             </tr>
                         </tbody>
                     </table>
