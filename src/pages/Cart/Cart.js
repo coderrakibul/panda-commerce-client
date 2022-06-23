@@ -65,7 +65,7 @@ const Cart = ({ cart, removeFromCart }) => {
 
             <div className='flex justify-center items-center gap-5 my-2'>
                 <div>
-                    <h3>Quantity: {quantity}</h3>
+                    <h3>Quantity: <span className='font-bold text-3xl cursor-pointer text-red-500'>-</span><strong className='text-2xl'>{quantity} 0</strong> <span className='font-bold text-3xl cursor-pointer text-green-500'>+</span></h3>
                     <h3>Shipping: ${shipping}</h3>
                     <h3>TAX- 10%: ${tax}</h3>
                     <h3 className='font-bold'>Total Price: <span className='text-orange-500'> ${finalPrice}</span></h3>
