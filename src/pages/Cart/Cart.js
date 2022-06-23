@@ -33,7 +33,8 @@ const Cart = ({ cart, removeFromCart }) => {
             .then(res => res.json())
             .then(data => {
                 if(data.success){
-                    toast(`${model} added to your orders`)
+                    toast(`${model} added to your orders`);
+                    removeFromCart(_id)
                 }
             })
 
