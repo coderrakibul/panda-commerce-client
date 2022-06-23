@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { _id, name, model, image, price, description } = product;
+    const { _id, name, model, quantity, image, price, description } = product;
 
     const [user, loading] = useAuthState(auth);
 
@@ -24,6 +24,7 @@ const Product = ({ product }) => {
             productId: product._id,
             name,
             model,
+            quantity,
             user: user.email,
             price,
             image
