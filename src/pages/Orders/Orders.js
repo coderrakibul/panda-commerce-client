@@ -57,7 +57,7 @@ const Orders = () => {
                                 <td></td>
                                 <td></td>
                                 <td className='font-bold'>Total Pay =</td>
-                                <td className='font-bold text-xl'>{totalPay}</td>
+                                <td className='font-bold text-xl text-orange-500'>${totalPay}</td>
                             </tr>
                         </tbody>
                     </table>
