@@ -12,6 +12,7 @@ import Carts from './pages/Cart/Carts';
 import { ToastContainer } from 'react-toastify';
 
 import 'react-toastify/dist/ReactToastify.css';
+import Payment from './pages/Orders/Payment';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/shop" element={<Shop></Shop>}></Route>
           <Route path="/cart" element={<RequireAuth><Carts></Carts></RequireAuth>}></Route>
           <Route path="/orders" element={<RequireAuth><Orders></Orders></RequireAuth>}></Route>
+          <Route path="/orders/payment" element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>

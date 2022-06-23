@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import Order from './Order';
@@ -11,7 +12,7 @@ const Orders = () => {
 
     let totalPay = 0;
 
-    for(const order of orders){
+    for (const order of orders) {
         totalPay = totalPay + order.finalPrice
     }
 
@@ -64,7 +65,7 @@ const Orders = () => {
                 }
             </div>
 
-            {orders.length > 0 && <button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Proceed Order</button>}
+            {orders.length > 0 && <Link to="/orders/payment"><button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Proceed Order</button></Link>}
         </div>
     );
 };
