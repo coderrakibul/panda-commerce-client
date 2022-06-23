@@ -8,19 +8,25 @@ const Cart = ({ cart, removeFromCart }) => {
     const { name, model, _id, image, price, quantity } = cart;
     const [user, loading] = useAuthState(auth);
 
-    const totalPrice = price * quantity;
+    let totalQuantity = 0;
+    let totalPrice = 0;
     const shipping = 5;
-    const tax = parseFloat(totalPrice / 100 * 10).toFixed(2);
+
+    totalQuantity = quantity + totalQuantity;
+    totalPrice = price * totalQuantity;
+    const tax = parseFloat(price * 0.1).toFixed(2);
+    
     const finalPrice = Math.round(totalPrice + shipping + parseFloat(tax));
+
 
     const handleAddToCart = (id) => {
         const order = {
             productId: cart._id,
             name,
             model,
-            quantity,
+            totalQuantity,
             user: user.email,
-            price,
+            finalPrice,
             image
         }
 
