@@ -26,6 +26,27 @@ const Orders = () => {
         }
     }, [user])
 
+    const handleAddToPayment = () => {
+        const payment = {
+            totalPay,
+            user: user.email
+        }
+
+        fetch('http://localhost:5000/payment', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(payment)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
+    if (loading) {
+        return <Loading></Loading>
+    }
+
     if (loading) {
         return <Loading></Loading>
     }
@@ -65,7 +86,7 @@ const Orders = () => {
                 }
             </div>
 
-            {orders.length > 0 && <Link to="/orders/payment"><button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Proceed Order</button></Link>}
+            {orders.length > 0 && <Link to="/orders/payment"><button onClick={handleAddToPayment} className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Proceed Order</button></Link>}
         </div>
     );
 };
