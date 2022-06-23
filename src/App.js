@@ -10,9 +10,7 @@ import Header from './pages/Shared/Header';
 import Shop from './pages/Shop/Shop';
 import Carts from './pages/Cart/Carts';
 import { ToastContainer } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
-import Payment from './pages/Orders/Payment';
 
 
 function App() {
