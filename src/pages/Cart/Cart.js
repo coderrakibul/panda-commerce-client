@@ -32,7 +32,9 @@ const Cart = ({ cart, removeFromCart }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                if(data.success){
+                    toast(`${model} added to your orders`)
+                }
             })
 
     }

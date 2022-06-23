@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import Order from './Order';
 
 const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(false);
+    const [user] = useAuthState(auth);
 
     useEffect(() => {
-        setLoading(true)
-        fetch('http://localhost:5000/order')
-            .then(res => res.json())
-            .then(data => {
-                setOrders(data)
-                setLoading(false)
-            })
-    }, [])
+        if (user) {
+            setLoading(true);
+            fetch(`http://localhost:5000/order?user=${user.email}`)
+                .then(res => res.json())
+                .then(data => setOrders(data));
+            setLoading(false);
+        }
+    }, [user])
 
     if (loading) {
         return <Loading></Loading>
