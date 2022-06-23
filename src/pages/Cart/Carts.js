@@ -51,13 +51,12 @@ const Carts = () => {
     }
 
 
-
     if (loading) {
         return <Loading></Loading>
     }
 
     return (
-        <div className='container mx-auto mb-8'>
+        <div className='container mx-auto mb-16'>
             <h2 className='text-center text-2xl font-bold my-8'>{carts.length > 0 ? <>Total Item: {carts.length}</> : <>No Items Added</>}</h2>
             <div>
                 {
@@ -69,7 +68,7 @@ const Carts = () => {
                 }
             </div>
             {
-                carts.length > 1 ? <button onClick={removeCart} className="btn bg-red-600 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
+                carts.length > 1 ? <button onClick={removeCart} className="btn bg-red-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Delete All</button> : ''
             }
         </div>
     );
