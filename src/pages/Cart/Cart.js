@@ -37,6 +37,7 @@ const Cart = ({ cart, removeFromCart }) => {
             model,
             totalQuantity,
             user: user.email,
+            userName: user.displayName,
             finalPrice,
             image
         }
