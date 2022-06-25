@@ -35,7 +35,7 @@ const Cart = ({ cart, removeFromCart }) => {
             productId: cart._id,
             name,
             model,
-            totalQuantity,
+            count,
             user: user.email,
             userName: user.displayName,
             finalPrice,
