@@ -17,7 +17,7 @@ const Header = ({ children }) => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`http://localhost:5000/cart?user=${user.email}`, {
+            fetch(`https://polar-lake-06561.herokuapp.com/cart?user=${user.email}`, {
                 method: 'GET',
                 headers: {
                 }
