@@ -82,7 +82,7 @@ const Orders = () => {
                 }
             </div>
 
-            {orders.length > 0 && <Link to="/orders/payment"> <button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8">Click to Payment</button></Link>}
+            {orders.length > 0 && <Link to="/orders/payment"> <button className="btn bg-green-500 btn-sm font-bold w-2/4 mx-auto block mt-8 text-white">Click to Payment <span className='ml-4 font-bold text-xl'>${totalPay}</span></button></Link>}
         </div>
     );
 };
