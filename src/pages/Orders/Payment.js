@@ -25,7 +25,7 @@ const Payment = () => {
     })
 
     async function handleToken(token, addresses) {
-        const response = await axios.post('https://polar-lake-06561.herokuapp.com/checkout', { token, product })
+        const response = await axios.post('http://localhost:5000/checkout', { token, product })
         console.log(response.status);
         if (response.status === 200) {
             toast('Payment Success', { type: 'success' })
@@ -39,7 +39,7 @@ const Payment = () => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`https://polar-lake-06561.herokuapp.com/order?user=${user.email}`)
+            fetch(`http://localhost:5000/order?user=${user.email}`)
                 .then(res => res.json())
                 .then(data => setOrders(data));
             setLoading(false);
