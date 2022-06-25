@@ -53,36 +53,27 @@ const Orders = () => {
             }
             <div className="overflow-x-auto">
                 {
-                    orders.length > 0 && <table className="table w-full md:w-5/6 lg:w-3/5 mx-auto">
+                    orders.length > 0 && <table className="table w-full md:w-5/6 lg:w-2/4 mx-auto">
                         <thead>
                             <tr>
-                                <th>Number</th>
                                 <th>Image</th>
                                 <th>Model</th>
                                 <th>Total</th>
+                                <th className='flex justify-center'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                orders.map((order, index) => <Order
+                                orders.map((order) => <Order
                                     key={order._id}
                                     order={order}
-                                    index={index}
                                     removeFromOrder={removeFromOrder}
                                 ></Order>)
                             }
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td className='font-bold'>Total Pay =</td>
-                                <td className='font-bold text-xl text-orange-500'>${totalPay}</td>
-                            </tr>
                         </tbody>
                     </table>
                 }
             </div>
-
-            {orders.length > 0 && <Link to="/orders/payment"> <button className="btn bg-green-500 btn font-bold w-2/4 mx-auto block mt-8 text-white">Click to Payment <span className='ml-4 font-bold text-xl'>${totalPay}</span></button></Link>}
         </div>
     );
 };
