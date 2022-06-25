@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 import Order from './Order';
@@ -9,12 +8,6 @@ const Orders = () => {
     const [orders, setOrders] = useState([]);
     const [loading, setLoading] = useState(false);
     const [user] = useAuthState(auth);
-
-    let totalPay = 0;
-
-    for (const order of orders) {
-        totalPay = totalPay + order.finalPrice
-    }
 
     useEffect(() => {
         if (user) {
