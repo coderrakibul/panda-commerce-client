@@ -12,6 +12,7 @@ import Carts from './pages/Cart/Carts';
 import Payment from './pages/Orders/Payment';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Profile from './pages/Profile/Profile';
 
 
 
@@ -28,6 +29,7 @@ function App() {
           <Route path="/orders/payment" element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/signup" element={<SignUp></SignUp>}></Route>
+          <Route path="/profile" element={<Profile></Profile>}></Route>
           <Route path="*" element={<NotFound></NotFound>}></Route>
         </Routes>
         <ToastContainer></ToastContainer>

@@ -48,7 +48,7 @@ const Header = ({ children }) => {
 
 
                 <div className="dropdown dropdown-end">
-                    <li><NavLink className='rounded-lg font-bold text-white' to=""><button>{user.displayName}</button></NavLink></li>
+                    <li><NavLink className='rounded-lg font-bold text-white' to="/profile"><button>{user.displayName}</button></NavLink></li>
                     <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                         <li>
                             <p className="rounded-lg font-bold justify-between">
