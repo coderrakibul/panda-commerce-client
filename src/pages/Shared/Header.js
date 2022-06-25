@@ -47,13 +47,13 @@ const Header = ({ children }) => {
             user ? <>
 
 
-                <div class="dropdown dropdown-end">
+                <div className="dropdown dropdown-end">
                     <li><NavLink className='rounded-lg font-bold text-white' to=""><button>{user.displayName}</button></NavLink></li>
-                    <ul tabindex="0" class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
+                    <ul tabIndex="0" className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
                         <li>
                             <p className="rounded-lg font-bold justify-between">
                                 Profile
-                                <span class="badge">New</span>
+                                <span className="badge">New</span>
                             </p>
                         </li>
                         <li><p className='rounded-lg font-bold'>Settings</p></li>

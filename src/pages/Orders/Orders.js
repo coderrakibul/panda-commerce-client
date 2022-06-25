@@ -51,9 +51,9 @@ const Orders = () => {
             {
                 orders.length > 0 ? <h2 className='text-center text-2xl font-bold my-8'>Total: {orders.length}</h2> : <h2 className='text-center text-2xl font-bold my-8'>No Items Added</h2>
             }
-            <div class="overflow-x-auto">
+            <div className="overflow-x-auto">
                 {
-                    orders.length > 0 && <table class="table w-full md:w-5/6 lg:w-3/5 mx-auto">
+                    orders.length > 0 && <table className="table w-full md:w-5/6 lg:w-3/5 mx-auto">
                         <thead>
                             <tr>
                                 <th>Number</th>
