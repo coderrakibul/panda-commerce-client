@@ -24,7 +24,23 @@ const Orders = () => {
                 .then(data => setOrders(data));
             setLoading(false);
         }
-    }, [user])
+    }, [user, orders])
+
+
+    const removeFromOrder = (id) => {
+        const proceed = window.confirm('are you sure?');
+        if (proceed) {
+            const url = `http://localhost:5000/order/${id}`;
+            fetch(url, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
+        }
+    }
+
 
     if (loading) {
         return <Loading></Loading>
@@ -52,6 +68,7 @@ const Orders = () => {
                                     key={order._id}
                                     order={order}
                                     index={index}
+                                    removeFromOrder={removeFromOrder}
                                 ></Order>)
                             }
                             <tr>
