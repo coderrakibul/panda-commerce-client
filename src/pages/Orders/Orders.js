@@ -12,7 +12,7 @@ const Orders = () => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`http://localhost:5000/order?user=${user.email}`)
+            fetch(`https://polar-lake-06561.herokuapp.com/order?user=${user.email}`)
                 .then(res => res.json())
                 .then(data => setOrders(data));
             setLoading(false);
@@ -23,7 +23,7 @@ const Orders = () => {
     const removeFromOrder = (id) => {
         const proceed = window.confirm('are you sure?');
         if (proceed) {
-            const url = `http://localhost:5000/order/${id}`;
+            const url = `https://polar-lake-06561.herokuapp.com/order/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
