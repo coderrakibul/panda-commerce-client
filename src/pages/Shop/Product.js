@@ -6,7 +6,7 @@ import Loading from '../Shared/Loading';
 import { useNavigate } from 'react-router-dom';
 
 const Product = ({ product }) => {
-    const { _id, name, model, quantity, image, price, description } = product;
+    const { _id, name, model, quantity, image, price, stock, description } = product;
 
     const [user, loading] = useAuthState(auth);
 
@@ -27,6 +27,7 @@ const Product = ({ product }) => {
             quantity,
             user: user.email,
             price,
+            stock,
             image
         }
 
@@ -62,7 +63,8 @@ const Product = ({ product }) => {
             </div>
             <div className="card-body mt-6">
                 <h2>Brand: {name}</h2>
-                <p>Code: {model}</p>
+                <p>Model: {model}</p>
+                <p>Available: {stock} pcs</p>
                 <h3 className='text-xl font-bold'>Price: <span className='text-orange-500'>${price}</span></h3>
                 <div className="card-actions w-full">
                     <button onClick={() => handleAddToCart(_id)} className="btn btn-primary w-full font-bold">Add to Cart</button>

@@ -5,7 +5,7 @@ import auth from '../../firebase.init';
 import Loading from '../Shared/Loading';
 
 const Cart = ({ cart, removeFromCart }) => {
-    const { name, model, _id, image, price, quantity } = cart;
+    const { name, model, _id, image, price, quantity, stock } = cart;
     const [user, loading] = useAuthState(auth);
     const [count, setCount] = useState(1);
     const newPrice = price * count;
@@ -84,7 +84,7 @@ const Cart = ({ cart, removeFromCart }) => {
 
             <div className='flex justify-center items-center gap-5 my-2'>
                 <div>
-                    <h3>Quantity: <button onClick={() => decrease(_id)} className='btn btn-ghost text-3xl font-bold text-red-500'>-</button><strong className='text-2xl'>{count}</strong> <button onClick={() => increase(_id)} className='btn btn-ghost text-3xl font-bold text-green-500'>+</button></h3>
+                    <h3>Quantity: <button disabled={count < 2} onClick={() => decrease(_id)} className='btn btn-ghost text-3xl font-bold text-red-500'>-</button><strong className='text-2xl'>{count}</strong> <button disabled={count === stock} onClick={() => increase(_id)} className='btn btn-ghost text-3xl font-bold text-green-500'>+</button></h3>
                     <h3>Shipping: ${shipping}</h3>
                     <h3>TAX- 10%: ${tax}</h3>
                     <h3 className='font-bold'>Total Price: <span className='text-orange-500'> ${finalPrice}</span></h3>
