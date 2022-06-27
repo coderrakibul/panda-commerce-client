@@ -77,7 +77,8 @@ const CheckoutForm = ({ order }) => {
             //store payment on database
             const payment = {
                 product: _id,
-                transactionId: paymentIntent.id
+                transactionId: paymentIntent.id,
+                user
             }
             fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
