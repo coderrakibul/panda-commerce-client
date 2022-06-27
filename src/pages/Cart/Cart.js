@@ -42,7 +42,7 @@ const Cart = ({ cart, removeFromCart }) => {
             image
         }
 
-        fetch('http://localhost:5000/order', {
+        fetch('https://polar-lake-06561.herokuapp.com/order', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

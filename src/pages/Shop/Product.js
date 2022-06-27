@@ -31,7 +31,7 @@ const Product = ({ product }) => {
             image
         }
 
-        fetch('http://localhost:5000/cart', {
+        fetch('https://polar-lake-06561.herokuapp.com/cart', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
