@@ -80,7 +80,8 @@ const CheckoutForm = ({ order }) => {
                 transactionId: paymentIntent.id,
                 user,
                 model,
-                image
+                image,
+                finalPrice
             }
             fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
