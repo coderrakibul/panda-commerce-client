@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../Footer/Footer';
 import Products from './Products';
 
 const Shop = () => {
@@ -6,6 +7,7 @@ const Shop = () => {
     return (
         <div>
             <Products></Products>
+            <Footer></Footer>
         </div>
     );
 };
