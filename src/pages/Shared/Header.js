@@ -43,6 +43,7 @@ const Header = ({ children }) => {
             </div>
         </label></NavLink></li>
         <li><NavLink className='rounded-lg font-bold text-white' to="/orders">Orders</NavLink></li>
+        <li><NavLink className='rounded-lg font-bold text-white' to="/history">History</NavLink></li>
         {
             user ? <>
 
