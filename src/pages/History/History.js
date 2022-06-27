@@ -9,6 +9,14 @@ const History = () => {
     const [user] = useAuthState(auth);
     const [loading, setLoading] = useState(false);
 
+    let totalCost = 0;
+
+    for (const product of history) {
+        totalCost = totalCost + product.finalPrice;
+        console.log(totalCost)
+    }
+
+
     useEffect(() => {
         if (user) {
             setLoading(true);
@@ -17,7 +25,7 @@ const History = () => {
                 .then(data => setHistory(data));
             setLoading(false);
         }
-    }, [history, user])
+    }, [user])
 
     if (loading) {
         return <Loading></Loading>
@@ -26,7 +34,7 @@ const History = () => {
 
     return (
         <div className='container mx-auto mb-16'>
-            <h2 className='text-center text-2xl font-bold my-8'>Total Payments: {history.length}</h2>
+            {history.length > 0 ? <h2 className='text-center text-2xl font-bold my-8'>Total Payments: {history?.length}</h2> : <h2 className='text-center text-2xl font-bold my-8'>No History!</h2>}
 
             {
                 history.map(hist => <HistoryList
@@ -34,6 +42,9 @@ const History = () => {
                     hist={hist}
                 ></HistoryList>)
             }
+
+            {history.length > 0 ? <h2 className='text-center text-2xl font-bold my-8'>Total Cost: <span className='font-bold text-orange-500'>${totalCost}</span></h2> : ""}
+
         </div>
     );
 };

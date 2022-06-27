@@ -42,7 +42,7 @@ const Orders = () => {
     return (
         <div className='container mx-auto mb-16'>
             {
-                orders.length > 0 ? <h2 className='text-center text-2xl font-bold my-8'>Total: {orders.length}</h2> : <h2 className='text-center text-2xl font-bold my-8'>No Items Added</h2>
+                orders.length > 0 ? <h2 className='text-center text-2xl font-bold my-8'>Total: {orders.length}</h2> : <h2 className='text-center text-2xl font-bold my-8'>No Items Ordered</h2>
             }
             <div className="overflow-x-auto">
                 {
