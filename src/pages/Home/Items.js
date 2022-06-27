@@ -9,7 +9,7 @@ const Items = () => {
 
     useEffect(() => {
         setLoading(true)
-        fetch('https://polar-lake-06561.herokuapp.com/item')
+        fetch('http://localhost:5000/item')
             .then(res => res.json())
             .then(data => {
                 setItems(data)

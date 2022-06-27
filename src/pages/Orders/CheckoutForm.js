@@ -13,7 +13,7 @@ const CheckoutForm = ({ order }) => {
     const { _id, user, userName, finalPrice } = order;
 
     useEffect(() => {
-        fetch('https://polar-lake-06561.herokuapp.com/create-payment-intent', {
+        fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -79,7 +79,7 @@ const CheckoutForm = ({ order }) => {
                 product: _id,
                 transactionId: paymentIntent.id
             }
-            fetch(`https://polar-lake-06561.herokuapp.com/order/${_id}`, {
+            fetch(`http://localhost:5000/order/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',
