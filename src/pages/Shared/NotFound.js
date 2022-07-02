@@ -1,5 +1,5 @@
 import React from 'react';
-import imoji from '../images/imoji.png';
+import imoji from '../../images/imoji.png'
 
 const NotFound = () => {
     return (

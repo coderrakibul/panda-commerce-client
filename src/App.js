@@ -1,6 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import NotFound from './NotFound/NotFound';
 import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import RequireAuth from './pages/Login/RequireAuth';
@@ -14,6 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from './pages/Profile/Profile';
 import Payment from './pages/Orders/Payment';
 import History from './pages/History/History';
+import NotFound from './pages/Shared/NotFound';
 
 
 
