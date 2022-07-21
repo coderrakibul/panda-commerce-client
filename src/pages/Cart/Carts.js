@@ -12,7 +12,7 @@ const Carts = () => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`https://polar-lake-06561.herokuapp.com/cart?user=${user.email}`)
+            fetch(`http://localhost:5000/cart?user=${user.email}`)
                 .then(res => res.json())
                 .then(data => setCarts(data));
             setLoading(false);
@@ -23,7 +23,7 @@ const Carts = () => {
     const removeFromCart = (id) => {
         const proceed = window.confirm('are you sure?');
         if (proceed) {
-            const url = `https://polar-lake-06561.herokuapp.com/cart/${id}`;
+            const url = `http://localhost:5000/cart/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -38,7 +38,7 @@ const Carts = () => {
     const removeCart = () => {
         const proceed = window.confirm('are you sure?');
         if (proceed) {
-            const url = `https://polar-lake-06561.herokuapp.com/cart?user=${user.email}`;
+            const url = `http://localhost:5000/cart?user=${user.email}`;
             fetch(url, {
                 method: 'DELETE'
             })

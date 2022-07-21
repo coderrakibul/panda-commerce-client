@@ -20,7 +20,7 @@ const History = () => {
     useEffect(() => {
         if (user) {
             setLoading(true);
-            fetch(`https://polar-lake-06561.herokuapp.com/history?user=${user.email}`)
+            fetch(`http://localhost:5000/history?user=${user.email}`)
                 .then(res => res.json())
                 .then(data => setHistory(data));
             setLoading(false);
